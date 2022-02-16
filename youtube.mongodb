@@ -1,0 +1,18 @@
+db.dropDatabase();
+db = db.getSiblingDB('youtube');
+
+db.proveedores.drop();
+db.clientes.drop();
+
+db.tiendas.insertMany(
+ [
+  {
+    _id: 1,
+    direccion:{
+      id_direccion: 545,
+      calle: 'Aaaa',
+      numero: 1,
+      codigopostal: "11111",
+      localidad: "Sabadell",
+      provincia: "Barcelona"
+    },

@@ -1,7 +1,9 @@
 
-//db.dropDatabase();
+db.dropDatabase();
 db = db.getSiblingDB('optica');
 
+db.proveedores.drop();
+db.clientes.drop();
 
 db.proveedores.insertMany(
  [
@@ -19,24 +21,6 @@ db.proveedores.insertMany(
       ciudad: "Amsterdam",
       codigopostal: "11111",
       pais: "Holanda"
-    },
-    gafa1:{
-      marca: "Blue Rayban",
-      graduacion_izq: 0.25,
-      graduacion_der: 0.25,
-      tipo_montura: "flotante",
-      color_montura: "azul",
-      color_cristales: "azul",
-      precio: 25,
-    },
-    gafa2:{
-      marca: "Green Rayban",
-      graduacion_izq: 0.5,
-      graduacion_der: 0.5,
-      tipo_montura: "pasta",
-      color_montura: "verde",
-      color_cristales: "verde",
-      precio: 50,
     }
   },
  {
@@ -86,9 +70,6 @@ db.clientes.insertMany(
     recomendado_por: "",
     fecha_venta: ISODate("2021-01-03T23:30:15.123Z"),
     empleado_venta: "Manolo",
-    producto_comprado: [
-        $ref: 
-    ]
     direccion:{
       calle: 'Dddd',
       numero: 4,
@@ -97,6 +78,16 @@ db.clientes.insertMany(
       ciudad: "Donetsk",
       codigopostal: "44444",
       pais: "Ucrania"
+    },
+      gafa_comprada:{
+        marca: "Blue Rayban",
+        graduacion_izq: 0.25,
+        graduacion_der: 0.25,
+        tipo_montura: "flotante",
+        color_montura: "azul",
+        color_cristales: "azul",
+        precio: 25,
+        proveedor_id: 1
     }
   },
   {
@@ -116,6 +107,16 @@ db.clientes.insertMany(
       ciudad: "Edimburgo",
       codigopostal: "55555",
       pais: "Escocia"
+    },
+      gafa_comprada:{
+        marca: "Green Rayban",
+        graduacion_izq: 0.5,
+        graduacion_der: 0.5,
+        tipo_montura: "pasta",
+        color_montura: "verde",
+        color_cristales: "verde",
+        precio: 50,
+        proveedor_id: 1
     }
   }
  ] 
