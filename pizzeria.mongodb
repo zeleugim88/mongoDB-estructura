@@ -23,7 +23,7 @@ db.tiendas.insertMany(
       descripcion: "Piña y queso",
       imagen: "http://olegif.com/bin/gifs/00/49/30.gif",
       precio: 12.95,
-      cateogoria_pizza: "Gourmet"
+      categoria_pizza: "Gourmet"
     },
     empleados:{
       id_empleado: 234,
@@ -57,12 +57,12 @@ db.clientes.insertMany(
       pedido_id: 1,
       fecha: new Date(2021,01,01),
       hora: ("21:26:17Z"),
+      precio: 12.95,
       entrega: {
         empleado_id: 234,
         hora_entrega: ("22:00:00"),
         fecha_entrega: new Date(2021,01,01)
-      },
-      precio: 12.95
+      }
     }
   }
  ]
