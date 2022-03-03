@@ -3803,5 +3803,29 @@ db.ubicaciones.find({    $and: [        {"borough": {$eq: "Bronx"}},    {$or: [{
 db.ubicaciones.find({$or: [{"borough" : "Staten Island" },{"borough" : "Queens" },{"borough" : "Bronx" },{"borough" : "Brooklyn" }]},{restaurant_id : 1, name: 1, borough:1, cuisine :1});
 db.ubicaciones.find({"borough":{ $nin : ['Staten Island','Queens','Bronx','Brooklyn']}},{restaurant_id : 1, name: 1, borough:1, cuisine :1});
 db.ubicaciones.find({"grades.score": {$lt: 10}},{restaurant_id : 1, name: 1, borough:1, cuisine :1});
+db.ubicaciones.find( { $and: [{"cuisine": {$regex: /seafood/i}},{"cuisine": {$not: {$regex: /american/i}}},{"cuisine": {$not: {$regex: /chinese/i}}},{ "name" : {$not: {$regex: /^Wil/}}}] },{restaurant_id : 1, name: 1, borough:1, cuisine :1});
+db.ubicaciones.find({$and: [{"grades.grade": {$eq: "A"}},{"grades.score" : {$eq: 11}},{"grades.date" : {$eq: {"$date": 1407715200000}}}]},{restaurant_id : 1, name:1, "grades.grade":1});
+db.ubicaciones.find({$and: [{"grades.1.grade" : {$eq: "A"}},{"grades.1.score" : {$eq: 9}},{"grades.1.date" : {$eq: {"$date": 1407715200000}}}]},{restaurant_id : 1, name:1, "grades.grade":1});
+db.ubicaciones.find({$and: [{"address.coord.1": {$gte : 42 }},{"address.coord.1": {$lte: 52}}]},{restaurant_id : 1, name: 1, "address.street" : 1, "address.coord" : 1})
+db.ubicaciones.find({}).sort({name:1})
+db.ubicaciones.find({}).sort({name:-1})
+db.ubicaciones.find({}).sort({cuisine:1, borough:-1})
+db.ubicaciones.find({"address.street" : {$exists: true}})
+db.ubicaciones.find({"address.coord" : {$type : "double"}})
+db.ubicaciones.find({"grades.score": { $mod: [ 7, 0 ] }},{restaurant_id : 1, name: 1, "grades.grade": 1})
+db.ubicaciones.find({ "name" : {$regex: /mon/i}}, {name:1, borough:1, "address.coord":1, cuisine : 1});
+db.ubicaciones.find({ "name" : {$regex: /^Mad/}}, {name:1, borough:1, "address.coord":1, cuisine : 1});
 
-use('rest');
+
+
+
+
+
+
+/* use('rest'); */
+
+/* var dn = new Date("2014-08-11T00:00:00Z");
+var diso = new ISODate("2014-08-11T00:00:00Z")
+console.log(dn.getTime());
+console.log(diso.getTime());
+ */
