@@ -1,7 +1,6 @@
 
 db.dropDatabase();
 db = db.getSiblingDB('optica');
-
 db.proveedores.drop();
 db.clientes.drop();
 
@@ -67,7 +66,7 @@ db.clientes.insertMany(
     telefono: "644444444",
     email: "pepito@outlook.com",
     fecha_registro: ISODate("2021-01-03T23:30:15.123Z"),
-    recomendado_por: "",
+    recomendado_por: ObjectId("5349b4ddd2781d08c09890f4"),
     fecha_venta: ISODate("2021-01-03T23:30:15.123Z"),
     empleado_venta: "Manolo",
     direccion:{
@@ -79,7 +78,9 @@ db.clientes.insertMany(
       codigopostal: "44444",
       pais: "Ucrania"
     },
-      gafa_comprada:{
+      gafas_compradas:
+      [
+        {
         marca: "Blue Rayban",
         graduacion_izq: 0.25,
         graduacion_der: 0.25,
@@ -88,7 +89,8 @@ db.clientes.insertMany(
         color_cristales: "azul",
         precio: 25,
         proveedor_id: 1
-    }
+        }
+      ]
   },
   {
     _id: 2,
@@ -96,7 +98,7 @@ db.clientes.insertMany(
     telefono: "655555555",
     email: "grillo@outlook.com",
     fecha_registro: ISODate("2021-02-03T23:30:15.123Z"),
-    recomendado_por: "Pepito",
+    recomendado_por: ObjectId("5349b4ddd2781d08c09890f4"),
     fecha_venta: ISODate("2021-02-03T23:30:15.123Z"),
     empleado_venta: "Manolo",
     direccion:{
@@ -108,16 +110,29 @@ db.clientes.insertMany(
       codigopostal: "55555",
       pais: "Escocia"
     },
-      gafa_comprada:{
-        marca: "Green Rayban",
-        graduacion_izq: 0.5,
-        graduacion_der: 0.5,
-        tipo_montura: "pasta",
-        color_montura: "verde",
-        color_cristales: "verde",
-        precio: 50,
-        proveedor_id: 1
-    }
+      gafas_compradas:
+      [
+        {
+          marca: "Green Rayban",
+          graduacion_izq: 0.5,
+          graduacion_der: 0.5,
+          tipo_montura: "pasta",
+          color_montura: "verde",
+          color_cristales: "verde",
+          precio: 50,
+          proveedor_id: 1
+        },
+        {        
+          marca: "Green Rayban",
+          graduacion_izq: 0.5,
+          graduacion_der: 0.5,
+          tipo_montura: "pasta",
+          color_montura: "verde",
+          color_cristales: "verde",
+          precio: 50,
+          proveedor_id: 1
+        }
+      ]
   }
  ] 
 )
